@@ -3,7 +3,6 @@
 #include <emscripten.h>
 #include <stdio.h>
 
-#define MESSAGE "HELLO SDL!"
 #define SPRITE_FILE "sprites/Franchise1.png"
 
 int main() {
@@ -13,6 +12,7 @@ int main() {
   SDL_Rect dest = {.x = 160, .y = 100, .w = 0, .h = 0 };
 
   SDL_Texture *texture;
+
   SDL_Init( SDL_INIT_VIDEO );
 
   SDL_CreateWindowAndRenderer(320, 200, 0, &window, &renderer);
@@ -30,6 +30,7 @@ int main() {
   texture = SDL_CreateTextureFromSurface(renderer, temp_surface);
 
   SDL_FreeSurface(temp_surface);
+
   SDL_QueryTexture(texture, NULL, NULL, &dest.w, &dest.h); // query the width and height
 
   dest.x -= dest.w / 2;
